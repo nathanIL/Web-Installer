@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head><title><%= $app_name %></title>
+  <link rel="icon" type="image/png"  href="img/favicon.png">
+  %= stylesheet 'css/bootstrap.min.css';
+  %= javascript 'js/jquery.min.js';
+  %= javascript 'js/bootstrap.min.js';
+  </head>
+  <body>
+    <%= content %>
+  </body>
+</html>
