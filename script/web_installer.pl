@@ -8,6 +8,8 @@ use lib     "$Bin/../lib";
 
 sub set_plugins {
 	$_[0]->plugin('JSONConfig',{ file => "$Bin/../conf/app_conf.json" } );
+	$_[0]->plugin('Plugins::InstallTypes', { loadable_types_dir       => "$Bin/../lib/Install/Types/Loadable",
+		                                     loadable_types_namespace => 'Install::Types::Loadable' });
 }
 
 sub set_application_mode {
@@ -16,9 +18,7 @@ sub set_application_mode {
 
 sub set_application_defaults {
 	my $defaults = $_[0]->config // {};
-    
-    $defaults->{loadable_types_dir}       = "$Bin/../lib/Install/Types/Loadable";
-    $defaults->{loadable_types_namespace} = 'Install::Types::Loadable';
+
 	$_[0]->defaults($defaults);
 }
 

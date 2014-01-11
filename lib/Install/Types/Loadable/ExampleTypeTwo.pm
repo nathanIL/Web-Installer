@@ -3,8 +3,10 @@ use Moose;
 
 with 'Install::Types::IType';
 
+has '+is_active' => ( default => 1 );
+
 sub _build_image {
-	'sss';
+	'example_type_two.png';
 }
 
 sub _build_h1 {
