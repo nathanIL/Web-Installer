@@ -8,6 +8,10 @@ sub startup {
   $r->get('/')->to( namespace  => 'Controllers::Install', 
                     controller => 'Select', 
                     action     => 'type' );
+
+  $r->get('/type')->to( namespace  => 'Controllers::Install', 
+                        controller => 'Select', 
+                        action     => 'questions' );
 }
 
 1;
