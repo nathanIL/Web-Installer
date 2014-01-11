@@ -7,8 +7,8 @@ use lib     "$Bin/../lib";
 
 my $app = Mojolicious::Commands->start_app('WebInstaller');
 $app->log->handle(\*STDOUT); # For Debugging
-$app->plugin('JSONConfig',               { file => "$Bin/../conf/app_conf.json" } );
-$app->plugin('Plugins::QuestionsParser', { file => "$Bin/../conf/questions.xml" } );
+$app->plugin('JSONConfig',            { file      => "$Bin/../conf/app_conf.json" } );
+$app->plugin('Plugins::InstallTypes');
 $app->mode($app->config->{mode});
 $app->defaults($app->config);
 
