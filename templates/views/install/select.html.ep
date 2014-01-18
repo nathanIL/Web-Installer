@@ -13,14 +13,14 @@
 <% } %>
       </ol>
       <div class="carousel-inner">
-<% foreach my $item (@$types) { %>
+<% foreach my $item ( sort { $b->is_active <=> $a->is_active } @$types) { %>
         <div class="item <%= $item->is_active ? 'active' : '' %>">
           <img src="<%= sprintf("%simg/%s", url_for('/')->to_abs, $item->image) %>">
           <div class="container">
             <div class="carousel-caption">
               <h1><%= $item->h1 %></h1>
               <p><%== $item->caption %></p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Continue</a></p>
+              <p><a class="btn btn-lg btn-primary" href="<%= sprintf("%s?id=%i",url_for('/type')->to_abs,$item->refaddr) %>" role="button">Continue</a></p>
             </div>
           </div>
         </div>

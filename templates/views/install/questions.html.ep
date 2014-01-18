@@ -1,0 +1,34 @@
+% layout 'default';
+%= stylesheet 'css/questions.css';
+
+<div class="row questions_page">
+  <!-- Navigation Buttons -->
+  <div class="col-md-3 questions_pane">
+    <ul class="nav nav-pills nav-stacked" id="questionsTabs">
+      <li class="active"><a href="#home">Home</a></li>
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#messages">Messages</a></li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <form>
+  <div class="col-md-9">
+    <div class="tab-content">
+      <div class="tab-pane active" id="home">Home</div>
+      <div class="tab-pane" id="profile">Profile</div>
+      <div class="tab-pane" id="messages">Messages</div>
+    </div>
+  </div>
+  </form>
+<a class="btn btn-lg btn-primary" href="#" role="button">Submit</a>
+
+</div>
+
+<!-- Enable the tabs -->
+<script type="text/javascript">
+  $('#questionsTabs a').click(function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  });
+</script>

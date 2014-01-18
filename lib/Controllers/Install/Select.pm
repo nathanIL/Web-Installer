@@ -10,8 +10,16 @@ sub type {
 
 
 sub questions {
-	my $self = shift;
+	my $self          = shift;
+    my %type_map      = $self->install_types_by_refaddr();
+    my $selected_type = $type_map{ $self->param('id') };	
 	
 	# Render questions
+	$self->render( template => 'views/install/questions' );
+}
+
+sub results {
+	my $self = shift;
+	
 }
 1;

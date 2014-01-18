@@ -1,0 +1,14 @@
+.questions_pane {
+  background-color: #777;
+}
+
+.questions_page {
+  position: absolute;
+  min-width: 100%;
+  padding-top: 70px;
+}
+
+.questions_pane {
+	height: 580px;
+	overflow-y: scroll;
+}

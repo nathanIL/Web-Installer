@@ -12,6 +12,10 @@ sub startup {
   $r->get('/type')->to( namespace  => 'Controllers::Install', 
                         controller => 'Select', 
                         action     => 'questions' );
+
+  $r->post('/results')->to( namespace  => 'Controllers::Install', 
+                            controller => 'Select', 
+                            action     => 'results' );
 }
 
 1;

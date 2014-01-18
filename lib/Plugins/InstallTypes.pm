@@ -11,10 +11,13 @@ sub register {
   my $ln         = $conf->{loadable_types_namespace};
   my $lib_dir_dh = IO::Dir->new($dir) or croak "Could not load $dir";
   my @modules    = map { s/\.pm$//i; "$ln\:\:$_" } grep { m/\w+/ } $lib_dir_dh->read(); 
-	
+  my $instances;
+  
   $lib_dir_dh->close();
   autoload($_) foreach(@modules);
- 
-  $app->helper('install_types' => sub { [ map { $_->new() } @modules ] } ); 
+  
+  $instances = [ map { $_->new() } @modules ]; # Avoid reblessing
+  $app->helper('install_types' => sub { $instances } );
+  $app->helper('install_types_by_refaddr' => sub { map { $_->refaddr => $_ } @$instances } );
 }
 1;
